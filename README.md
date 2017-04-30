@@ -38,29 +38,30 @@ The Storm topology in this application is written in Clojure, and the processing
 
 3. Mount the directory /data on the volume, for example:
 
-    `mount -t ext4 /dev/xvdf /data`
+    `>> mount -t ext4 /dev/xvdf /data`
 
 4. Start postgres:  
 
-    `/data/postgres_start.sh`
+    `>> /data/postgres_start.sh`
 
 5. Install packages:
 
-    `pip install psycopg2`
-
-    `pip install tweepy`
+    ```
+    >> pip install psycopg2`
+    >> pip install tweepy`
+    ```
 
 6. Change to w205 user
 
-    `su - w205`
+    `>> su - w205`
 
 7. Enter the Postgres CLI and create a database called "tcount"
    
-    `psql -U postgres`
-
-    `postgres=# CREATE DATABASE tcount;`
-
-    `postgres=# \q`
+    ```
+    >> psql -U postgres`
+    >> postgres=# CREATE DATABASE tcount;`
+    >>postgres=# \q`
+    ```
 
 8. Navigate to /data/
 
@@ -70,5 +71,5 @@ The Storm topology in this application is written in Clojure, and the processing
 
 11. Run the application:
 
-    ` \>\> sparse run`
+    `>> sparse run`
 
