@@ -1,6 +1,9 @@
+## Jessica Sanders
+## Fall, 2016
+
 ## Application Overview
 
-Tweetwordcount is an application that uses an Apache Storm topology to analyze the word content of tweets coming from Twitter’s streaming API in real time. As tweets occur, the application ingests the tweets, parses the text into individual words, and keeps an ongoing count of words across all content. A PostgreSQL database is used to store the word counts as they are updated.
+Tweetwordcount is an application that uses an Apache Storm topology to analyze the word content of tweets coming from Twitter’s streaming API in real time. As tweets occur, the application ingests the tweets, parses the text into individual words, and keeps an ongoing count of words across all content. A PostgreSQL database is used to store the word counts as they are updated.  This project was part of a class for MIDS program (Masters in Data Science) at The University of California, Berkeley.
 
 ## Architecture and Apache Storm
 
