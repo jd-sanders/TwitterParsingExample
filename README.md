@@ -5,17 +5,25 @@ Tweetwordcount is an application that uses an Apache Storm topology to analyze t
 ## Architecture and Apache Storm
 
 This application is designed to run on Amazon Elastic Compute (EC2) instance. A public machine image, the UCB MIDS W205 EX2- FULL, has been developed and shared with the necessary technology (Storm, Python, and Postgres).
+
 Storm topologies consist of spouts, whose function is to generate streams of data, and bolts the process the data, potentially sending it to additional bolts. The application tweetwordcount has a single spout component, Tweets-spout, which uses the Tweepy library in Python to connect to the Twitter API and ingest the content of tweets. There are two bolt components, parse-bolt and wordcount-bolt. The Parse bolt accepts tweets from the tweet spout, and parses into individual words, which are then sent to the wordcount bolt. The wordcount bolt tallies the individual words and updates the Postgres database.
+
 It is possible to have multiple instances of each spout or bolt. The original recommendation for this topology was to have three spouts, three parse bolts, and two word count bolts. However, the topology appears to run more error free with a simpler topology of one spout, and two each of each bolt.
 
 ## File Descriptions
 
 *config.json*: Sets system configuration variables for Apache Storm
+
 *fabfile.py*, pass.py: These file defines custom actions to be performed before and after the submission of topologies. In this case, the remain blank.
+
 *project.clj*: Additional project variables definitions
+
 */src/bolts/Tweets.py*: The Python process that connect to the Twitter streaming API and ingests tweets.
+
 */src/spouts/parse.py*: The Python process that parses tweet content.
+
 */src/spouts/wordcount.py*: The Python process that counts words and updates a Postgres database.
+
 */topologies/tweetwordcount.clj*: A Clojure file defining the Storm topology
 
 ## Dependencies
@@ -29,9 +37,9 @@ The Storm topology in this application is written in Clojure, and the processing
 2. Attach an EBS volume of sufficient size for your needs.
 
 3. Mount the directory /data on the volume, for example:
-'''
-mount -t ext4 /dev/xvdf /data
-'''
+
+'mount -t ext4 /dev/xvdf /data'
+
 4. Start postgres:  
 '''
 /data/postgres_start.sh
