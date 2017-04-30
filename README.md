@@ -12,19 +12,19 @@ It is possible to have multiple instances of each spout or bolt. The original re
 
 ## File Descriptions
 
-*config.json*: Sets system configuration variables for Apache Storm
+**config.json**: Sets system configuration variables for Apache Storm
 
-*fabfile.py*, pass.py: These file defines custom actions to be performed before and after the submission of topologies. In this case, the remain blank.
+**fabfile.py**, pass.py: These file defines custom actions to be performed before and after the submission of topologies. In this case, the remain blank.
 
-*project.clj*: Additional project variables definitions
+**project.clj**: Additional project variables definitions
 
-*/src/bolts/Tweets.py*: The Python process that connect to the Twitter streaming API and ingests tweets.
+**/src/bolts/Tweets.py**: The Python process that connect to the Twitter streaming API and ingests tweets.
 
-*/src/spouts/parse.py*: The Python process that parses tweet content.
+**/src/spouts/parse.py**: The Python process that parses tweet content.
 
-*/src/spouts/wordcount.py*: The Python process that counts words and updates a Postgres database.
+**/src/spouts/wordcount.py**: The Python process that counts words and updates a Postgres database.
 
-*/topologies/tweetwordcount.clj*: A Clojure file defining the Storm topology
+**/topologies/tweetwordcount.clj**: A Clojure file defining the Storm topology
 
 ## Dependencies
 
@@ -38,27 +38,27 @@ The Storm topology in this application is written in Clojure, and the processing
 
 3. Mount the directory /data on the volume, for example:
 
-'mount -t ext4 /dev/xvdf /data'
+    `mount -t ext4 /dev/xvdf /data`
 
 4. Start postgres:  
-'''
-/data/postgres_start.sh
-'''
+
+    `/data/postgres_start.sh`
+
 5. Install packages:
-'''
-   pip install psycopg2
-   pip install tweepy
-'''
+
+    `pip install psycopg2`
+    `pip install tweepy`
+
 6. Change to w205 user
-'''
-   su - w205
-'''
+
+    `su - w205`
+
 7. Enter the Postgres CLI and create a database called "tcount"
-'''
-   psql -U postgres
-   postgres=# CREATE DATABASE tcount;
-   postgres=# \q
-'''
+   
+    `psql -U postgres`
+    `postgres=# CREATE DATABASE tcount;`
+    `postgres=# \q`
+
 8. Navigate to /data/
 
 9. Clone the repository, and modify the tweets.py file to include a valid set of Twitter credentials
@@ -66,6 +66,6 @@ The Storm topology in this application is written in Clojure, and the processing
 10. Navigate to the directory called /EXtweetwordcount/tweetwordcount/ (Currently in the hw_dev branch)
 
 11. Run the application:
-'''
-    sparse run
-'''
+
+    `sparse run`
+
