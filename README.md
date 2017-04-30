@@ -47,6 +47,7 @@ The Storm topology in this application is written in Clojure, and the processing
 5. Install packages:
 
     `pip install psycopg2`
+
     `pip install tweepy`
 
 6. Change to w205 user
@@ -56,7 +57,9 @@ The Storm topology in this application is written in Clojure, and the processing
 7. Enter the Postgres CLI and create a database called "tcount"
    
     `psql -U postgres`
+
     `postgres=# CREATE DATABASE tcount;`
+
     `postgres=# \q`
 
 8. Navigate to /data/
@@ -67,5 +70,5 @@ The Storm topology in this application is written in Clojure, and the processing
 
 11. Run the application:
 
-    `sparse run`
+    ` \>\> sparse run`
 
